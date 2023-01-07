@@ -27,7 +27,6 @@ Foreach($Utilisateur in $CSVData){
      # Si l'utilisateur n'existe pas
              New-ADUser -Name "$UtilisateurNom $UtilisateurPrenom" `
                     -DisplayName "$UtilisateurNom $UtilisateurPrenom" `
-                    -DisplayName "$UtilisateurNom $UtilisateurPrenom" `
                     -GivenName $UtilisateurPrenom `
                     -Surname $UtilisateurNom `
                     -SamAccountName $UtilisateurUsername `
