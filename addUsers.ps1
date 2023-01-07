@@ -33,7 +33,6 @@ Foreach($Utilisateur in $CSVData){
                     -Path "OU=utilisateurs,DC=L2-2,DC=lab" `
                     -AccountPassword(ConvertTo-SecureString $UtilisateurPassword -AsPlainText -Force) `
                     -ChangePasswordAtLogon $true `
-                    -PasswordNeverExpires $true `
                     -Enabled $true
 
         Write-Output "Création de l'utilisateur : $UtilisateurUsername ($UtilisateurNom $UtilisateurPrenom)"
