@@ -2,7 +2,7 @@
 # https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps
 Import-Module ActiveDirectory
 
-$CSVFile = "C:\Scripts\MODIFY_AD_USERS\Utilisateurs.csv"
+$CSVFile = "editUtilisateurs.csv"
 
 $users = Import-Csv -Path $CSVFile -Header "Username", "NewFirstName", "NewLastName", "NewUsername"
 
