@@ -2,14 +2,19 @@
 # https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps
 Import-Module ActiveDirectory
 
-$CSVFile = "C:\Scripts\AD_USERS\Utilisateurs.csv"
+$CSVFile = "Utilisateurs.csv"
 $CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8
 
+Write-Host "Création des utilisateurs"
+Write-Host "-------------------------"
+Write-Host ""
+Write-Host "Fichier CSV : $CSVFile"
+
 Foreach($Utilisateur in $CSVData){
-    $UtilisateurUsername = $Utilisateur.Username
+    $UtilisateurUsername = $Utilisateur.Prenom + "." + $Utilisateur.Nom
     $UtilisateurPrenom = $Utilisateur.Prenom
     $UtilisateurNom = $Utilisateur.Nom
-    $UtilisateurPassword = $Utilisateur.Password
+    $UtilisateurPassword = "Password123!"
 
    # On vérifie l'existence d'un utilisateur 
    if (Get-ADUser -Filter {SamAccountName -eq $UtilisateurUsername})
@@ -28,7 +33,7 @@ Foreach($Utilisateur in $CSVData){
                     -SamAccountName $UtilisateurUsername `
                     -Path "OU=utilisateurs,DC=L2-2,DC=lab" `
                     -AccountPassword(ConvertTo-SecureString $UtilisateurPassword -AsPlainText -Force) `
-                    -ChangePasswordAtLogon $false `
+                    -ChangePasswordAtLogon $true `
                     -PasswordNeverExpires $true `
                     -Enabled $true
 
