@@ -2,7 +2,7 @@
 # https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps
 Import-Module ActiveDirectory
 
-$CSVFile = "disableUtilisateurs.csv"
+$CSVFile = "C:\Users\Administrateur\Documents\disableUtilisateurs.csv"
 $CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8
 
 Foreach($Utilisateur in $CSVData){

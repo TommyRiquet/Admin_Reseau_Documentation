@@ -2,7 +2,7 @@
 # https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps
 Import-Module ActiveDirectory
 
-$CSVFile = "addUtilisateurs.csv"
+$CSVFile = "C:\Users\Administrateur\Documents\addUtilisateurs.csv"
 $CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8
 
 Write-Host "Création des utilisateurs"
