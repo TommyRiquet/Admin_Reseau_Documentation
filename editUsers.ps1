@@ -4,7 +4,7 @@ Import-Module ActiveDirectory
 
 $CSVFile = "C:\Users\Administrateur\Documents\editUtilisateurs.csv"
 
-$users = Import-Csv -Path $CSVFile -Header "Username", "NewFirstName", "NewLastName", "NewUsername"
+$users = Import-Csv -Path $CSVFile -Delimiter ";" -Encoding UTF8 -Header "Username", "NewFirstName", "NewLastName", "NewUsername"
 
 Foreach($user in $users) {
     $Username= $user.Username
